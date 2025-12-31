@@ -1,6 +1,7 @@
 #include<iostream>
-using namespace std;
 #include<string>
+using namespace std;
+
 
 class DiamondsCompany{
 
@@ -25,7 +26,7 @@ class DiamondsCompany{
         }
 
         void displayData(){
-            cout<<"\n..................................";
+            cout<<"\nCompany Details are.................................."<<endl;
             cout<<"Company ID                 : "<<comp_id<<endl;
             cout<<"Company Name               : "<<comp_name<<endl;
             cout<<"Company Staff              : "<<comp_staff_quantity<<endl;
@@ -48,8 +49,9 @@ int main(){
     int n;
     cout<<"Enter number of Diamonds Companies: ";
     cin>>n;
+    cin.ignore();
 
-    DiamondsCompany obj[n];
+    
 
     for(int i=0; i<n; i++){
 
@@ -82,15 +84,9 @@ int main(){
         cout << "Company CEO: ";
         getline(cin, ceo);
 
-        obj[i]=DiamondsCompany( id, name, staff, revenue, import_raw_diamonds, export_raw_diamonds, ceo);
-
+       DiamondsCompany obj( id, name, staff, revenue, import_raw_diamonds, export_raw_diamonds, ceo);
+       obj.displayData();
     }
-
-    for(int i = 0; i < n; i++) {
-       obj[i].displayData();
-    }
-
-
 
     return 0;
 }

@@ -1,6 +1,7 @@
 #include<iostream>
-using namespace std;
 #include<string>
+using namespace std;
+
 
 class FastFoodCafe{
 
@@ -15,8 +16,18 @@ class FastFoodCafe{
     //default constructor
     
         FastFoodCafe(){
-           
-        cout<< " \nCafe Details..........\n";
+
+            cafe_id=0;
+            cafe_name="not set";
+            cafe_type="not set";
+            cafe_rating=0;
+            cafe_establish_year=0;
+            cafe_staf_quantity=0;
+            cafe_location="not set";
+        }  
+
+        void setData(){
+            cout<< " \nCafe Details..........\n";
 
         cout << "Cafe ID: ";
         cin >> cafe_id;
@@ -40,7 +51,11 @@ class FastFoodCafe{
 
         cout << "Cafe Location: ";
         getline(cin, cafe_location);
-        }
+
+        }    
+           
+        
+        
 
         void displayData(){
             cout<<"\n..................................\n";
@@ -69,11 +84,16 @@ int main(){
 
     FastFoodCafe obj[n];
 
+    for(int i=0; i<n; i++){
+        cout<<"Fast Food Cafe number is..."<<i+1<<endl;
+        obj[i].setData();
+    }
+
     
     for(int i = 0; i < n; i++) {
 
-        cout<<"\nFast Food Cafe Details......."<<i+1<<endl;
-       obj[i].displayData();
+        cout<<"\nFast Food Cafe Details......."<<endl;
+        obj[i].displayData();
     }
 
 
