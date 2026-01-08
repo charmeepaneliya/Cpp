@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,6 +21,10 @@ public:
         emp_name = n;
         age = a;
         salary = s;
+    }
+    int getID()
+    {
+        return emp_id;
     }
 
     virtual void display()
@@ -70,7 +75,8 @@ public:
 
     void display() override
     {
-        cout << "\nPart time Employee Details\n" << endl;
+        cout << "\nPart time Employee Details\n"
+             << endl;
         Employee::display();
 
         cout << "Employee work hours" << hours_worked << endl;
@@ -147,12 +153,24 @@ int main()
         }
         else if (choice == 4)
         {
+            int id;
+            cout << "Enter Employee ID: ";
+            cin >> id;
+
             for (int i = 0; i < count; i++)
             {
-                delete employees[i];
+
+                if (employees[i]->getID() == id)
+                {
+                    delete employees[i];
+
+                    employees[i] = employees[count - 1];
+                    count--;
+
+                    cout << "\nEmployee Deleted\n";
+                    break;
+                }
             }
-            count = 0;
-            cout << "All employees deleted.\n";
         }
 
     } while (choice != 5);
